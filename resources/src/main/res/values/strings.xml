@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_sign_in_title">Добро пожаловать!</string>
+    <string name="auth_sign_in_description">Войдите и начните работу</string>
+    <string name="auth_sign_in_email_hint">Email</string>
+    <string name="auth_sign_in_password_hint">Password</string>
+    <string name="auth_sign_in_btn_sign">Войти</string>
+    <string name="auth_sign_in_btn_forget_password">Забыли пароль</string>
+    <string name="auth_sign_in_btn_registration">Регистрация</string>
+
+    <string name="auth_sign_up_title">Новый аккаунт</string>
+    <string name="auth_sign_up_description">Зарегистрируйся и начни пользоваться</string>
+    <string name="auth_sign_up_email">Email</string>
+    <string name="auth_sign_up_first_name">Имя</string>
+    <string name="auth_sign_up_second_name">Фамилия</string>
+    <string name="auth_sign_up_password">Пароль</string>
+    <string name="auth_sign_up_position">Должность</string>
+
+</resources>

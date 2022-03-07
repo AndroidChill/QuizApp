@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/fragment_intro">
+
+    <fragment
+        android:id="@+id/fragment_intro"
+        android:name="work.sample.auth.intro.IntroFragment"
+        tools:layout="@layout/fragment_intro">
+
+        <action
+            android:id="@+id/action_fragment_intro_to_fragment_phone"
+            app:destination="@id/fragment_phone"
+            app:enterAnim="@anim/fragment_from_end_to_start"
+            app:exitAnim="@anim/fragment_from_start_to_left"
+            app:popEnterAnim="@anim/fragment_from_left_to_start"
+            app:popExitAnim="@anim/fragment_from_start_to_end"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_sms"
+        android:name="work.sample.auth.sms.SmsFragment"
+        tools:layout="@layout/fragment_sms">
+        <action
+            android:id="@+id/action_fragment_sms_to_fragment_pin_code"
+            app:destination="@id/fragment_pin_code" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_phone"
+        android:name="work.sample.auth.phone.ui.PhoneFragment"
+        tools:layout="@layout/fragment_phone">
+        <action
+            android:id="@+id/action_fragment_phone_to_fragment_choose_role"
+            app:destination="@id/fragment_choose_role" />
+        <action
+            android:id="@+id/action_fragment_phone_to_fragment_sms"
+            app:destination="@id/fragment_sms" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_pin_code"
+        android:name="work.sample.auth.pinCode.PinCodeFragment"
+        tools:layout="@layout/fragment_pin_code"/>
+
+    <fragment
+        android:id="@+id/fragment_choose_role"
+        android:name="work.sample.auth.chooseRole.ChooseRoleFragment"
+        tools:layout="@layout/fragment_choose_role">
+        <action
+            android:id="@+id/action_fragment_choose_role_to_fragment_company_name"
+            app:destination="@id/fragment_company_name" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_company_name"
+        android:name="work.sample.auth.company.CompanyFragment"
+        tools:layout="@layout/fragment_company_name">
+        <action
+            android:id="@+id/action_fragment_company_name_to_fragment_sms"
+            app:destination="@id/fragment_sms" />
+    </fragment>
+
+
+</navigation>

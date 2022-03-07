@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fon">#F9F9FA</color>
+    <color name="accent">#062BB1</color>
+    <color name="accent_50">#80F1AC59</color>
+    <color name="gray">#CBCBCB</color>
+    <color name="gray_font">#9C9C9C</color>
+    <color name="gray_null">#00CBCBCB</color>
+    <color name="black">#333333</color>
+    <color name="red">#ED664F</color>
+    <color name="green">#26D27C</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>
