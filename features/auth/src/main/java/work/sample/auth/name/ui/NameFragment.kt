@@ -3,13 +3,22 @@ package work.sample.auth.name.ui
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import work.sample.auth.name.NameAction
+import work.sample.auth.name.NameNews
+import work.sample.auth.name.NameState
+import work.sample.auth.phone.PhoneNews
+import work.sample.auth.phone.PhoneState
 import work.sample.core.BaseFragment
+import work.sample.core.mvi.MviView
 import work.sample.navigation.params.screens.auth.ChooseRoleNameScreenParams
 import work.sample.navigation.params.screens.auth.PhoneNameScreenParams
 import kotlin.properties.Delegates
 import work.sample.auth.databinding.FragmentNameBinding as Binding
 
-class NameFragment : BaseFragment<Binding>() {
+class NameFragment : BaseFragment<Binding>(), MviView<NameState, NameNews> {
 
     override val inflater: (LayoutInflater, ViewGroup?, Boolean) -> Binding =
         Binding::inflate
@@ -29,7 +38,55 @@ class NameFragment : BaseFragment<Binding>() {
     }
 
     override fun initListener() {
-//        with()
+        with(binding) {
+
+            ivBack.setOnClickListener {
+                viewModel.back()
+            }
+
+            etName.addTextChangedListener{
+                btnSetName.isEnabled = !it.isNullOrEmpty()
+            }
+
+            btnSetName.setOnClickListener {
+                val phone: String = arguments?.getString(ARGS_PARAMS_PHONE) ?: ""
+                val action: Int = arguments?.getInt(ARGS_PARAMS_ACTION) ?: 0
+                val roleId: Int = arguments?.getInt(ARGS_PARAMS_ROLE_ID) ?: -1
+                val name: String = etName.text.toString()
+
+                lifecycleScope.launch {
+                    if (roleId < 1) {
+                        viewModel.obtainAction(NameAction.SignIn(
+                            phone, name
+                        ))
+                    } else{
+                        viewModel.obtainAction(NameAction.SignUp(
+                            phone, name, roleId
+                        ))
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    override fun bindViewModel() {
+        with(viewModel) {
+            bind(viewLifecycleOwner.lifecycleScope, this@NameFragment)
+        }
+    }
+
+    override fun renderState(state: NameState) {
+        when(state) {
+
+        }
+    }
+
+    override fun renderNews(news: NameNews) {
+        when(news) {
+
+        }
     }
 
     companion object {
@@ -50,4 +107,6 @@ class NameFragment : BaseFragment<Binding>() {
         }
 
     }
+
+
 }

@@ -1,4 +1,5 @@
 work.sample.core.BaseActivity
+work.sample.core.BaseBottomSheetBehaviorFragment
 work.sample.core.BaseFragment
 work.sample.core.BaseFragment_MembersInjector
 work.sample.core.BuildConfig
@@ -32,3 +33,8 @@ work.sample.core.mvi.Reducer
 work.sample.core.mvi.State
 work.sample.core.mvi.Store
 work.sample.core.mvi.Store_Factory
+work.sample.core.networkException.DomainException
+work.sample.core.networkException.NotInternetConnectionException
+work.sample.core.networkException.TimeoutException
+work.sample.core.networkException.user.auth.AccessTokenNotSavedException
+work.sample.core.networkException.user.auth.AuthException

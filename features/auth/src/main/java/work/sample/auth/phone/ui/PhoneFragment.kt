@@ -27,6 +27,7 @@ class PhoneFragment : BaseFragment<Binding>(), MviView<PhoneState, PhoneNews> {
 
     override fun initView() {
         with(binding) {
+
             val listener = MaskedTextChangedListener("+7 ([000]) [000]-[00]-[00]", etNumber)
             etNumber.addTextChangedListener(listener)
             etNumber.addTextChangedListener(object : TextWatcher {
@@ -56,7 +57,7 @@ class PhoneFragment : BaseFragment<Binding>(), MviView<PhoneState, PhoneNews> {
                 }
             }
 
-            imageView2.setOnClickListener {
+            ivBack.setOnClickListener {
                 viewModel.back()
             }
         }

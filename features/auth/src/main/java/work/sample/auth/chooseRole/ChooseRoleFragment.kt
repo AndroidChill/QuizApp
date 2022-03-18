@@ -25,7 +25,7 @@ class ChooseRoleFragment : BaseFragment<Binding>(){
                     ChooseRoleNameScreenParams(
                         0,
                         arguments?.getString(ARGS_PARAMS_PHONE) ?: "",
-                        0
+                        1
                     )
                 )
             }
@@ -34,9 +34,12 @@ class ChooseRoleFragment : BaseFragment<Binding>(){
                     ChooseRoleNameScreenParams(
                         0,
                         arguments?.getString(ARGS_PARAMS_PHONE) ?: "",
-                        1
+                        2
                     )
                 )
+            }
+            imageView.setOnClickListener {
+                router.back()
             }
         }
     }

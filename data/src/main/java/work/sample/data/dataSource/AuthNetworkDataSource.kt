@@ -5,10 +5,10 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import work.sample.core.DataState
-import work.sample.data.models.auth.signin.SignInRequest
-import work.sample.data.models.auth.signin.SignInResponse
-import work.sample.data.models.auth.signup.SignUpRequest
-import work.sample.data.models.auth.signup.SignUpResponse
+import work.sample.data.models.signIn.SignInRequest
+import work.sample.data.models.signIn.SignInResponse
+import work.sample.data.models.signUp.SignUpRequest
+import work.sample.data.models.signUp.SignUpResponse
 import work.sample.data.models.authCheck.AuthCheckRequest
 import work.sample.data.models.authCheck.AuthCheckResponse
 import work.sample.data.service.AuthService

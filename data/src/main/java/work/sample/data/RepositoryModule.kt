@@ -13,7 +13,8 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideAuthRepository(
-        authNetworkDataSource: AuthNetworkDataSource
-    ) : AuthRepository = AuthRepositoryImpl(authNetworkDataSource)
+        authNetworkDataSource: AuthNetworkDataSource,
+        tokenHolder: TokenHolder
+    ) : AuthRepository = AuthRepositoryImpl(authNetworkDataSource, tokenHolder)
 
 }

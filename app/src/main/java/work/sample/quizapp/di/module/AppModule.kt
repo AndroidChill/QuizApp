@@ -23,7 +23,6 @@ class AppModule {
         context.contentResolver
 
     @Provides
-    @Named("quizReferences")
     fun provideDataPreferences(context: Context): SharedPreferences =
         context.getSharedPreferences("quiz_preferences", Context.MODE_PRIVATE)
 

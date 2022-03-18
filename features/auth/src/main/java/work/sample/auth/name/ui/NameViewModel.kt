@@ -22,5 +22,7 @@ class NameViewModel @Inject constructor() : BaseViewModel<NameState, NameAction,
     @Inject
     lateinit var router: Router
 
-
+    fun back() {
+        router.back()
+    }
 }

@@ -18,24 +18,29 @@ public final class RepositoryModule_ProvideAuthRepositoryFactory implements Fact
 
   private final Provider<AuthNetworkDataSource> authNetworkDataSourceProvider;
 
+  private final Provider<TokenHolder> tokenHolderProvider;
+
   public RepositoryModule_ProvideAuthRepositoryFactory(RepositoryModule module,
-      Provider<AuthNetworkDataSource> authNetworkDataSourceProvider) {
+      Provider<AuthNetworkDataSource> authNetworkDataSourceProvider,
+      Provider<TokenHolder> tokenHolderProvider) {
     this.module = module;
     this.authNetworkDataSourceProvider = authNetworkDataSourceProvider;
+    this.tokenHolderProvider = tokenHolderProvider;
   }
 
   @Override
   public AuthRepository get() {
-    return provideAuthRepository(module, authNetworkDataSourceProvider.get());
+    return provideAuthRepository(module, authNetworkDataSourceProvider.get(), tokenHolderProvider.get());
   }
 
   public static RepositoryModule_ProvideAuthRepositoryFactory create(RepositoryModule module,
-      Provider<AuthNetworkDataSource> authNetworkDataSourceProvider) {
-    return new RepositoryModule_ProvideAuthRepositoryFactory(module, authNetworkDataSourceProvider);
+      Provider<AuthNetworkDataSource> authNetworkDataSourceProvider,
+      Provider<TokenHolder> tokenHolderProvider) {
+    return new RepositoryModule_ProvideAuthRepositoryFactory(module, authNetworkDataSourceProvider, tokenHolderProvider);
   }
 
   public static AuthRepository provideAuthRepository(RepositoryModule instance,
-      AuthNetworkDataSource authNetworkDataSource) {
-    return Preconditions.checkNotNullFromProvides(instance.provideAuthRepository(authNetworkDataSource));
+      AuthNetworkDataSource authNetworkDataSource, TokenHolder tokenHolder) {
+    return Preconditions.checkNotNullFromProvides(instance.provideAuthRepository(authNetworkDataSource, tokenHolder));
   }
 }

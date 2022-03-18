@@ -18,14 +18,17 @@
 12-->D:\work\QuizApp\features\auth\src\main\AndroidManifest.xml:6:13-36
 13            android:windowSoftInputMode="adjustResize" >
 13-->D:\work\QuizApp\features\auth\src\main\AndroidManifest.xml:7:13-55
-14
-15            <!-- <intent-filter> -->
-16            <!-- <action android:name="android.intent.action.MAIN" /> -->
-17
-18
-19            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-20            <!-- </intent-filter> -->
-21        </activity>
-22    </application>
-23
-24</manifest>
+14            <intent-filter>
+14-->D:\work\QuizApp\features\auth\src\main\AndroidManifest.xml:8:13-12:29
+15                <action android:name="android.intent.action.MAIN" />
+15-->D:\work\QuizApp\features\auth\src\main\AndroidManifest.xml:9:17-69
+15-->D:\work\QuizApp\features\auth\src\main\AndroidManifest.xml:9:25-66
+16
+17                <category android:name="android.intent.category.LAUNCHER" />
+17-->D:\work\QuizApp\features\auth\src\main\AndroidManifest.xml:11:17-77
+17-->D:\work\QuizApp\features\auth\src\main\AndroidManifest.xml:11:27-74
+18            </intent-filter>
+19        </activity>
+20    </application>
+21
+22</manifest>

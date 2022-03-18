@@ -5,14 +5,16 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import work.sample.core.DataState
 import work.sample.core.toSuccess
+import work.sample.data.TokenHolder
 import work.sample.data.dataSource.AuthNetworkDataSource
-import work.sample.data.models.auth.signin.SignInRequest
-import work.sample.data.models.auth.signup.SignUpRequest
+import work.sample.data.models.signIn.SignInRequest
+import work.sample.data.models.signUp.SignUpRequest
 import work.sample.data.models.authCheck.AuthCheckRequest
 import work.sample.domain.repository.AuthRepository
 
 class AuthRepositoryImpl(
-    private val authNetworkDataSource: AuthNetworkDataSource
+    private val authNetworkDataSource: AuthNetworkDataSource,
+    private val tokenHolder: TokenHolder
 ) : AuthRepository {
 
     override suspend fun authCheck(phone: String): Flow<DataState<Boolean>> =
@@ -29,8 +31,10 @@ class AuthRepositoryImpl(
             SignInRequest(
                 phone, name
             )
-        ).map {
-            DataState.Success(it.toSuccess().token.isNotEmpty())
+        )
+            .map {
+                tokenHolder.set(it.toSuccess().token)
+            DataState.Success(tokenHolder.isNotEmptyToken())
         }
 
     override suspend fun signUp(
