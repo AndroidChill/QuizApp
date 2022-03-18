@@ -4,19 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/work/QuizApp/app/src/main/res/layout/activity_main.xml" value="0.2916666666666667" />
+        <entry key="..\:/work/QuizApp/features/admin/src/main/res/layout/activity_admin.xml" value="0.371875" />
+        <entry key="..\:/work/QuizApp/features/admin/src/main/res/layout/fragment_group_create.xml" value="0.33" />
+        <entry key="..\:/work/QuizApp/features/admin/src/main/res/layout/fragment_groups.xml" value="0.19166666666666668" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/activity_auth.xml" value="0.2916666666666667" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_choose_role.xml" value="0.25" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_company_name.xml" value="0.22" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_intro.xml" value="0.2" />
-        <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_phone.xml" value="0.2" />
+        <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_name.xml" value="0.371875" />
+        <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_phone.xml" value="0.33" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_pin_code.xml" value="0.22" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="..\:/work/QuizApp/features/auth/src/main/res/layout/fragment_sms.xml" value="0.33" />
+        <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bg_bottom_sheet_24.xml" value="0.137" />
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bg_button_enabled_accent.xml" value="0.239" />
+        <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bg_circle_error_red.xml" value="0.1505" />
+        <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bg_progress_white.xml" value="0.137" />
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bg_shape_accent_radius_10.xml" value="0.301" />
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bg_shape_welcome.xml" value="0.301" />
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bt_et_accent.xml" value="0.1605" />
+        <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/cb_user_agreement.xml" value="0.1505" />
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/ic_back.xml" value="0.1495" />
       </map>
     </option>

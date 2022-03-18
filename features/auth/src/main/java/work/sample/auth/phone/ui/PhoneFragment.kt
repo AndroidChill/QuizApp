@@ -74,7 +74,14 @@ class PhoneFragment : BaseFragment<Binding>(), MviView<PhoneState, PhoneNews> {
     }
 
     override fun renderState(state: PhoneState) {
-
+        when(state) {
+            is PhoneState.AuthorizeUser -> {
+                viewModel.navigatePinCode(getCorrectPhone())
+            }
+            is PhoneState.UnAuthorizeUser -> {
+                viewModel.navigateChooseRole(getCorrectPhone())
+            }
+        }
     }
 
     override fun renderNews(news: PhoneNews) {

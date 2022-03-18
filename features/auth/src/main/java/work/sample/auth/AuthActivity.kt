@@ -11,6 +11,7 @@ class AuthActivity : BaseActivity() {
 
     override fun initLayout() {
         setContentView(R.layout.activity_auth)
+
         router.bind(this)
         router.onCreate(this)
     }

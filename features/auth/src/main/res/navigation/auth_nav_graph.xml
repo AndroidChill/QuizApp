@@ -20,14 +20,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_sms"
-        android:name="work.sample.auth.sms.SmsFragment"
-        tools:layout="@layout/fragment_sms">
-        <action
-            android:id="@+id/action_fragment_sms_to_fragment_pin_code"
-            app:destination="@id/fragment_pin_code" />
-    </fragment>
-    <fragment
         android:id="@+id/fragment_phone"
         android:name="work.sample.auth.phone.ui.PhoneFragment"
         tools:layout="@layout/fragment_phone">
@@ -35,31 +27,22 @@
             android:id="@+id/action_fragment_phone_to_fragment_choose_role"
             app:destination="@id/fragment_choose_role" />
         <action
-            android:id="@+id/action_fragment_phone_to_fragment_sms"
-            app:destination="@id/fragment_sms" />
+            android:id="@+id/action_fragment_phone_to_fragment_name"
+            app:destination="@id/fragment_name" />
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_pin_code"
-        android:name="work.sample.auth.pinCode.PinCodeFragment"
-        tools:layout="@layout/fragment_pin_code"/>
+        android:id="@+id/fragment_name"
+        android:name="work.sample.auth.name.ui.NameFragment"
+        tools:layout="@layout/fragment_name"/>
 
     <fragment
         android:id="@+id/fragment_choose_role"
         android:name="work.sample.auth.chooseRole.ChooseRoleFragment"
         tools:layout="@layout/fragment_choose_role">
         <action
-            android:id="@+id/action_fragment_choose_role_to_fragment_company_name"
-            app:destination="@id/fragment_company_name" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/fragment_company_name"
-        android:name="work.sample.auth.company.CompanyFragment"
-        tools:layout="@layout/fragment_company_name">
-        <action
-            android:id="@+id/action_fragment_company_name_to_fragment_sms"
-            app:destination="@id/fragment_sms" />
+            android:id="@+id/action_fragment_choose_role_to_fragment_name"
+            app:destination="@id/fragment_name" />
     </fragment>
 
 

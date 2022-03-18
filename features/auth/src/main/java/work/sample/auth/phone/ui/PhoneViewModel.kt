@@ -8,6 +8,9 @@ import work.sample.auth.phone.PhoneState
 import work.sample.auth.phone.PhoneStore
 import work.sample.core.mvi.BaseViewModel
 import work.sample.navigation.Router
+import work.sample.navigation.params.screens.auth.ChooseRoleScreenParams
+import work.sample.navigation.params.screens.auth.PhoneNameScreenParams
+import work.sample.navigation.params.screens.auth.PinCodeScreenParams
 import javax.inject.Inject
 
 class PhoneViewModel @Inject constructor() : BaseViewModel<PhoneState, PhoneAction, PhoneNews>() {
@@ -21,6 +24,18 @@ class PhoneViewModel @Inject constructor() : BaseViewModel<PhoneState, PhoneActi
 
     @Inject
     lateinit var router: Router
+
+    fun navigateChooseRole() {
+
+    }
+
+    fun navigatePinCode(phone: String) {
+        router.navigate(PhoneNameScreenParams(1, phone))
+    }
+
+    fun navigateChooseRole(phone: String) {
+        router.navigate(ChooseRoleScreenParams(phone))
+    }
 
     fun back() {
         router.back()

@@ -61,6 +61,9 @@ public final class FragmentPinCodeBinding implements ViewBinding {
   public final ImageView buttonDelNum;
 
   @NonNull
+  public final ImageView imageView3;
+
+  @NonNull
   public final LinearLayout linearLayout;
 
   @NonNull
@@ -88,10 +91,10 @@ public final class FragmentPinCodeBinding implements ViewBinding {
       @NonNull MaterialButton button6, @NonNull MaterialButton button7,
       @NonNull MaterialButton button8, @NonNull MaterialButton button9,
       @NonNull ImageButton buttonBiometrics, @NonNull ImageView buttonDelNum,
-      @NonNull LinearLayout linearLayout, @NonNull ShapeableImageView point1,
-      @NonNull ShapeableImageView point2, @NonNull ShapeableImageView point3,
-      @NonNull ShapeableImageView point4, @NonNull LinearLayout progressCircular,
-      @NonNull MaterialTextView text) {
+      @NonNull ImageView imageView3, @NonNull LinearLayout linearLayout,
+      @NonNull ShapeableImageView point1, @NonNull ShapeableImageView point2,
+      @NonNull ShapeableImageView point3, @NonNull ShapeableImageView point4,
+      @NonNull LinearLayout progressCircular, @NonNull MaterialTextView text) {
     this.rootView = rootView;
     this.button0 = button0;
     this.button1 = button1;
@@ -105,6 +108,7 @@ public final class FragmentPinCodeBinding implements ViewBinding {
     this.button9 = button9;
     this.buttonBiometrics = buttonBiometrics;
     this.buttonDelNum = buttonDelNum;
+    this.imageView3 = imageView3;
     this.linearLayout = linearLayout;
     this.point1 = point1;
     this.point2 = point2;
@@ -213,6 +217,12 @@ public final class FragmentPinCodeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.imageView3;
+      ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView3 == null) {
+        break missingId;
+      }
+
       id = R.id.linearLayout;
       LinearLayout linearLayout = ViewBindings.findChildViewById(rootView, id);
       if (linearLayout == null) {
@@ -257,7 +267,8 @@ public final class FragmentPinCodeBinding implements ViewBinding {
 
       return new FragmentPinCodeBinding((ConstraintLayout) rootView, button0, button1, button2,
           button3, button4, button5, button6, button7, button8, button9, buttonBiometrics,
-          buttonDelNum, linearLayout, point1, point2, point3, point4, progressCircular, text);
+          buttonDelNum, imageView3, linearLayout, point1, point2, point3, point4, progressCircular,
+          text);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

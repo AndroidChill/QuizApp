@@ -1,10 +1,9 @@
 R_DEF: Internal format may change without notice
 local
-id action_fragment_choose_role_to_fragment_company_name
-id action_fragment_company_name_to_fragment_pin_code
+id action_fragment_choose_role_to_fragment_name
 id action_fragment_intro_to_fragment_phone
 id action_fragment_phone_to_fragment_choose_role
-id action_fragment_phone_to_fragment_pin_code
+id action_fragment_phone_to_fragment_name
 id auth_nav_graph
 id btn_child
 id btn_parent
@@ -25,16 +24,17 @@ id button_del_num
 id container
 id et_email
 id et_first_name
+id et_name
 id et_number
 id et_password
 id et_second_name
 id fragment_choose_role
-id fragment_company_name
 id fragment_intro
+id fragment_name
 id fragment_phone
-id fragment_pin_code
 id imageView
 id imageView2
+id imageView3
 id linearLayout
 id point1
 id point2
@@ -53,8 +53,10 @@ layout activity_auth
 layout fragment_choose_role
 layout fragment_company_name
 layout fragment_intro
+layout fragment_name
 layout fragment_phone
 layout fragment_pin_code
 layout fragment_sign_in
 layout fragment_sign_up
+layout fragment_sms
 navigation auth_nav_graph

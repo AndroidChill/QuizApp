@@ -9,6 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import work.sample.data.service.AuthService
+import work.sample.data.service.CompanyService
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -51,6 +52,11 @@ class NetworkModule {
     @Singleton
     fun provideAuthService(retrofit: Retrofit) : AuthService =
         retrofit.create(AuthService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideCompanyService(retrofit: Retrofit) : CompanyService =
+        retrofit.create(CompanyService::class.java)
 
     @Provides
     @Singleton

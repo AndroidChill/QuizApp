@@ -6,13 +6,16 @@ int color accent 0x0
 int color accent_50 0x0
 int color black 0x0
 int color cb_user_agreement 0x0
+int color error 0x0
 int color fon 0x0
 int color gray 0x0
 int color gray_font 0x0
 int color gray_null 0x0
 int color green 0x0
+int color grey_point_code 0x0
 int color red 0x0
 int color white 0x0
+int drawable bg_bottom_sheet_24 0x0
 int drawable bg_button_enabled_accent 0x0
 int drawable bg_circle_6_accent 0x0
 int drawable bg_circle_6_gray 0x0
@@ -20,6 +23,7 @@ int drawable bg_circle_error_red 0x0
 int drawable bg_line_32_2_accent 0x0
 int drawable bg_line_32_2_gray 0x0
 int drawable bg_line_32_2_red 0x0
+int drawable bg_progress_white 0x0
 int drawable bg_shape_accent_16 0x0
 int drawable bg_shape_accent_radius_10 0x0
 int drawable bg_shape_gray_radius_10 0x0
@@ -31,6 +35,7 @@ int drawable cb_user_agreement_select 0x0
 int drawable cb_user_agreement_unselect 0x0
 int drawable ic_back 0x0
 int drawable ic_baseline_backspace_24 0x0
+int drawable ic_baseline_close_24 0x0
 int drawable ic_cb_ok 0x0
 int drawable ic_checkbox_select 0x0
 int drawable ic_choose_role 0x0
@@ -94,3 +99,4 @@ int style TextStyle_SecondaryBig 0x0
 int style TextStyle_SecondarySmall 0x0
 int style TextStyle_SecondarySmall_Red 0x0
 int style Widget_App_CheckBox_UserAgreement 0x0
+int style progressBarWhite 0x0

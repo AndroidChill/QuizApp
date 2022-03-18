@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_groups"
+    android:id="@+id/admin_nav_graph">
+
+    <fragment
+        android:id="@+id/fragment_groups"
+        android:name="work.sample.admin.GroupsFragment"
+        tools:layout="@layout/fragment_groups">
+        <action
+            android:id="@+id/action_fragment_groups_to_dialog_group_create"
+            app:destination="@id/dialog_group_create" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/dialog_group_create"
+        android:name="work.sample.admin.GroupCreateBottomFragment"
+        tools:layout="@layout/fragment_group_create"/>
+</navigation>

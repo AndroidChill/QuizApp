@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.map
 import work.sample.core.DataState
 import work.sample.core.toSuccess
 import work.sample.data.dataSource.AuthNetworkDataSource
+import work.sample.data.models.auth.signin.SignInRequest
+import work.sample.data.models.auth.signup.SignUpRequest
 import work.sample.data.models.authCheck.AuthCheckRequest
 import work.sample.domain.repository.AuthRepository
 
@@ -21,5 +23,27 @@ class AuthRepositoryImpl(
                     it.toSuccess().id != 0
                 )
             }
+
+    override suspend fun signIn(phone: String, name: String) =
+        authNetworkDataSource.signIn(
+            SignInRequest(
+                phone, name
+            )
+        ).map {
+            DataState.Success(it.toSuccess().token.isNotEmpty())
+        }
+
+    override suspend fun signUp(
+        phone: String,
+        name: String,
+        roleId: Int
+    )  =
+        authNetworkDataSource.signUp(
+            SignUpRequest(
+                phone, name, roleId
+            )
+        ).map {
+            DataState.Success(it.toSuccess().token.isNotEmpty())
+        }
 
 }

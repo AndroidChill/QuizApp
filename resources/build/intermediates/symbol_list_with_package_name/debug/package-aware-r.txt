@@ -7,13 +7,16 @@ color accent
 color accent_50
 color black
 color cb_user_agreement
+color error
 color fon
 color gray
 color gray_font
 color gray_null
 color green
+color grey_point_code
 color red
 color white
+drawable bg_bottom_sheet_24
 drawable bg_button_enabled_accent
 drawable bg_circle_6_accent
 drawable bg_circle_6_gray
@@ -21,6 +24,7 @@ drawable bg_circle_error_red
 drawable bg_line_32_2_accent
 drawable bg_line_32_2_gray
 drawable bg_line_32_2_red
+drawable bg_progress_white
 drawable bg_shape_accent_16
 drawable bg_shape_accent_radius_10
 drawable bg_shape_gray_radius_10
@@ -32,6 +36,7 @@ drawable cb_user_agreement_select
 drawable cb_user_agreement_unselect
 drawable ic_back
 drawable ic_baseline_backspace_24
+drawable ic_baseline_close_24
 drawable ic_cb_ok
 drawable ic_checkbox_select
 drawable ic_choose_role
@@ -95,3 +100,4 @@ style TextStyle_SecondaryBig
 style TextStyle_SecondarySmall
 style TextStyle_SecondarySmall_Red
 style Widget_App_CheckBox_UserAgreement
+style progressBarWhite

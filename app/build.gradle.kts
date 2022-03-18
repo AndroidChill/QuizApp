@@ -44,6 +44,7 @@ android {
 dependencies {
 
     api(project(":features:auth"))
+    api(project(":features:admin"))
     implementation(project(":data"))
 
     kapt(Dependencies.Kapt.daggerCompiler)

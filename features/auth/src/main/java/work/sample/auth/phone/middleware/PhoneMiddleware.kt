@@ -20,7 +20,7 @@ class PhoneMiddleware(store: Store<*, *, *>) : Middleware<PhoneAction>(store) {
 
                     },
                     onError = {
-
+                        effect = PhoneAction.AuthCheckError(it)
                     }
                 )
             }
