@@ -11,4 +11,6 @@ interface GroupService {
     @POST("main/group/detail")
     suspend fun groupDetail(@Header("Authorization") token: String, @Body request: GroupDetailsRequest) : List<UserBody>
 
+
+
 }

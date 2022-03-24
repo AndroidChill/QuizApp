@@ -92,7 +92,10 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
                     roleId = state.data.user.roleId
                 }
 
-                adapterGroup.addData(state.data.user.company.groups)
+                state.data.user.company.groups?.let {
+                    adapterGroup.addData(it)
+                }
+
                 adapterTest.addPublishData(state.data.tests.publish)
                 adapterTest.addPrivateData(state.data.tests.private)
             }

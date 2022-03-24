@@ -53,6 +53,7 @@ class AuthRepositoryImpl(
                 phone, name, roleId
             )
         ).map {
+            tokenHolder.set(it.toSuccess().token)
             DataState.Success(it.toSuccess().token.isNotEmpty())
         }
 
