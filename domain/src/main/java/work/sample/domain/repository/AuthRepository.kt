@@ -5,6 +5,8 @@ import work.sample.core.DataState
 
 interface AuthRepository {
 
+    suspend fun checkToken(): Flow<DataState<Boolean>>
+
     suspend fun authCheck(phone: String): Flow<DataState<Boolean>>
 
     suspend fun signIn(phone: String, name: String) : Flow<DataState<Boolean>>

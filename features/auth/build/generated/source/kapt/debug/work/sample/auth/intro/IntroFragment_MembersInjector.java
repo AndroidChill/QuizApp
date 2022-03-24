@@ -7,6 +7,7 @@ import dagger.internal.DaggerGenerated;
 import dagger.internal.InjectedFieldSignature;
 import javax.inject.Provider;
 import work.sample.core.BaseFragment_MembersInjector;
+import work.sample.domain.usecase.AuthCheckUseCase;
 import work.sample.navigation.Router;
 
 @DaggerGenerated
@@ -19,26 +20,36 @@ public final class IntroFragment_MembersInjector implements MembersInjector<Intr
 
   private final Provider<Router> routerProvider;
 
+  private final Provider<AuthCheckUseCase> authCheckUseCaseProvider;
+
   public IntroFragment_MembersInjector(Provider<ViewModelProvider.Factory> viewModelFactoryProvider,
-      Provider<Router> routerProvider) {
+      Provider<Router> routerProvider, Provider<AuthCheckUseCase> authCheckUseCaseProvider) {
     this.viewModelFactoryProvider = viewModelFactoryProvider;
     this.routerProvider = routerProvider;
+    this.authCheckUseCaseProvider = authCheckUseCaseProvider;
   }
 
   public static MembersInjector<IntroFragment> create(
-      Provider<ViewModelProvider.Factory> viewModelFactoryProvider,
-      Provider<Router> routerProvider) {
-    return new IntroFragment_MembersInjector(viewModelFactoryProvider, routerProvider);
+      Provider<ViewModelProvider.Factory> viewModelFactoryProvider, Provider<Router> routerProvider,
+      Provider<AuthCheckUseCase> authCheckUseCaseProvider) {
+    return new IntroFragment_MembersInjector(viewModelFactoryProvider, routerProvider, authCheckUseCaseProvider);
   }
 
   @Override
   public void injectMembers(IntroFragment instance) {
     BaseFragment_MembersInjector.injectViewModelFactory(instance, viewModelFactoryProvider.get());
     injectRouter(instance, routerProvider.get());
+    injectAuthCheckUseCase(instance, authCheckUseCaseProvider.get());
   }
 
   @InjectedFieldSignature("work.sample.auth.intro.IntroFragment.router")
   public static void injectRouter(IntroFragment instance, Router router) {
     instance.router = router;
+  }
+
+  @InjectedFieldSignature("work.sample.auth.intro.IntroFragment.authCheckUseCase")
+  public static void injectAuthCheckUseCase(IntroFragment instance,
+      AuthCheckUseCase authCheckUseCase) {
+    instance.authCheckUseCase = authCheckUseCase;
   }
 }

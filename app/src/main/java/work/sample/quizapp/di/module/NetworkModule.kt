@@ -8,8 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import work.sample.data.service.AuthService
-import work.sample.data.service.CompanyService
+import work.sample.data.service.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -57,6 +56,21 @@ class NetworkModule {
     @Singleton
     fun provideCompanyService(retrofit: Retrofit) : CompanyService =
         retrofit.create(CompanyService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideUserService(retrofit: Retrofit) : UserService =
+        retrofit.create(UserService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideGroupService(retrofit: Retrofit) : GroupService =
+        retrofit.create(GroupService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideTestService(retrofit: Retrofit) : TestService =
+        retrofit.create(TestService::class.java)
 
     @Provides
     @Singleton

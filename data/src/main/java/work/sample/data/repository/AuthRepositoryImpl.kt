@@ -17,6 +17,12 @@ class AuthRepositoryImpl(
     private val tokenHolder: TokenHolder
 ) : AuthRepository {
 
+    override suspend fun checkToken(): Flow<DataState<Boolean>> {
+        return flow {
+            emit(DataState.Success(tokenHolder.isNotEmptyToken()))
+        }
+    }
+
     override suspend fun authCheck(phone: String): Flow<DataState<Boolean>> =
         authNetworkDataSource.authCheck(AuthCheckRequest(phone))
             .map {

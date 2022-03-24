@@ -1,5 +1,6 @@
 package work.sample.auth.name.ui
 
+import android.content.Intent
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import work.sample.auth.name.NameAction
@@ -21,6 +22,10 @@ class NameViewModel @Inject constructor() : BaseViewModel<NameState, NameAction,
 
     @Inject
     lateinit var router: Router
+
+    fun navigateAdmin() : Intent {
+        return router.getAdminIntent()
+    }
 
     fun back() {
         router.back()

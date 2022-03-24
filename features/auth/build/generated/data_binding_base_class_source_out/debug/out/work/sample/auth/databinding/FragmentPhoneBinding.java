@@ -30,7 +30,7 @@ public final class FragmentPhoneBinding implements ViewBinding {
   public final EditText etNumber;
 
   @NonNull
-  public final ImageView imageView2;
+  public final ImageView ivBack;
 
   @NonNull
   public final LinearLayout linearLayout;
@@ -39,13 +39,12 @@ public final class FragmentPhoneBinding implements ViewBinding {
   public final TextView textView;
 
   private FragmentPhoneBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton btnSetPhone, @NonNull EditText etNumber,
-      @NonNull ImageView imageView2, @NonNull LinearLayout linearLayout,
-      @NonNull TextView textView) {
+      @NonNull MaterialButton btnSetPhone, @NonNull EditText etNumber, @NonNull ImageView ivBack,
+      @NonNull LinearLayout linearLayout, @NonNull TextView textView) {
     this.rootView = rootView;
     this.btnSetPhone = btnSetPhone;
     this.etNumber = etNumber;
-    this.imageView2 = imageView2;
+    this.ivBack = ivBack;
     this.linearLayout = linearLayout;
     this.textView = textView;
   }
@@ -89,9 +88,9 @@ public final class FragmentPhoneBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imageView2;
-      ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView2 == null) {
+      id = R.id.iv_back;
+      ImageView ivBack = ViewBindings.findChildViewById(rootView, id);
+      if (ivBack == null) {
         break missingId;
       }
 
@@ -107,8 +106,8 @@ public final class FragmentPhoneBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentPhoneBinding((ConstraintLayout) rootView, btnSetPhone, etNumber,
-          imageView2, linearLayout, textView);
+      return new FragmentPhoneBinding((ConstraintLayout) rootView, btnSetPhone, etNumber, ivBack,
+          linearLayout, textView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

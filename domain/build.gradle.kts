@@ -44,4 +44,9 @@ dependencies {
 
     kapt(Dependencies.Kapt.daggerCompiler)
     annotationProcessor(Dependencies.Kapt.daggerAndroidProcessor)
+
+    implementation(Dependencies.Google.gson)
+    implementation(Dependencies.SquareUp.converterGson)
+    implementation(Dependencies.SquareUp.loggingInterceptor)
+    implementation(Dependencies.SquareUp.retrofit)
 }

@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import work.sample.admin.AdminActivity
 import work.sample.navigation.ActionResolver
 import work.sample.navigation.ResultContainer
 import work.sample.navigation.Router
@@ -55,5 +56,9 @@ class RouterImpl @Inject constructor(
 
     override fun back() {
         navController?.navigateUp()
+    }
+
+    override fun getAdminIntent(): Intent {
+        return Intent(context, AdminActivity::class.java)
     }
 }

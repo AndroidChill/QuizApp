@@ -1,6 +1,7 @@
 package work.sample.navigation
 
 import android.app.Activity
+import android.content.Intent
 import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
 import work.sample.navigation.params.screens.ScreenParams
@@ -18,5 +19,7 @@ interface Router {
     fun sendResult(key: String, data: Any?)
 
     fun back()
+
+    fun getAdminIntent(): Intent
 
 }

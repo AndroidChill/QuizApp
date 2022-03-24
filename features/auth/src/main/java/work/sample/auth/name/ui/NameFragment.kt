@@ -79,7 +79,10 @@ class NameFragment : BaseFragment<Binding>(), MviView<NameState, NameNews> {
 
     override fun renderState(state: NameState) {
         when(state) {
-
+            is NameState.NextScreen -> {
+                val adminIntent = viewModel.navigateAdmin()
+                requireActivity().startActivity(adminIntent)
+            }
         }
     }
 
