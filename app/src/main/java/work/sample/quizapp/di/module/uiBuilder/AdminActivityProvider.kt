@@ -6,7 +6,8 @@ import work.sample.admin.GroupCreateBottomFragment
 import work.sample.admin.groupDetail.ui.GroupDetailFragment
 import work.sample.admin.groupRequest.GroupRequestFragment
 import work.sample.admin.main.ui.GroupsFragment
-import work.sample.admin.testDetail.TestDetailFragment
+import work.sample.admin.testDetail.ui.TestDetailFragment
+import work.sample.admin.testHistory.ui.TestHistoryFragment
 
 @Module
 interface AdminActivityProvider {
@@ -25,4 +26,7 @@ interface AdminActivityProvider {
 
     @ContributesAndroidInjector
     fun testDetailFragment(): TestDetailFragment
+
+    @ContributesAndroidInjector
+    fun testHistoryFragment(): TestHistoryFragment
 }

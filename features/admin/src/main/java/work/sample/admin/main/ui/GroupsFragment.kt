@@ -18,7 +18,7 @@ import work.sample.navigation.params.screens.admin.GroupCreateScreenParams
 import javax.inject.Inject
 import work.sample.admin.databinding.FragmentGroupsBinding as Binding
 
-class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, GroupClick {
+class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, GroupClick, TestClick {
 
     override val inflater: (LayoutInflater, ViewGroup?, Boolean) -> Binding =
         Binding::inflate
@@ -39,10 +39,12 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
         }
     }
 
+    private var roleId = 0
+
     override fun initView() {
 
         adapterGroup = GroupAdapter(this)
-        adapterTest = UserTestsAdapter()
+        adapterTest = UserTestsAdapter(this)
 
         with(binding) {
             btnAddGroup.setOnClickListener {
@@ -56,6 +58,10 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
 
             rvTests.layoutManager = LinearLayoutManager(context)
             rvTests.adapter = adapterTest
+
+            btnHistory.setOnClickListener {
+                viewModel.navigateHistory(roleId)
+            }
         }
     }
 
@@ -82,6 +88,8 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
                     if (state.data.user.roleId != 2) {
                         btnAddGroup.visibility = View.GONE
                     }
+
+                    roleId = state.data.user.roleId
                 }
 
                 adapterGroup.addData(state.data.user.company.groups)
@@ -97,5 +105,9 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
 
     override fun onClickGroup(groupId: Int, title: String) {
         viewModel.navigateToDetailsGroup(groupId, title)
+    }
+
+    override fun onClick(id: Int, title: String) {
+        viewModel.navigateToTestDetail(id, title)
     }
 }

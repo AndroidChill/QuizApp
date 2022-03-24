@@ -18,12 +18,12 @@ data class User(
 
 
 data class TestPublish(
-    val id: String,
+    val id: Int,
     val title: String
 )
 
 data class TestPrivate(
-    val id: String,
+    val id: Int,
     val title: String,
     @SerializedName("group_title")
     val groupTitle: String

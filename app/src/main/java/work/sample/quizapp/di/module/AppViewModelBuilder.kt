@@ -6,6 +6,8 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import work.sample.admin.groupDetail.ui.GroupDetailsViewModel
 import work.sample.admin.main.ui.MainViewModel
+import work.sample.admin.testDetail.ui.TestDetailViewModel
+import work.sample.admin.testHistory.ui.TestHistoryViewModel
 import work.sample.auth.name.ui.NameViewModel
 import work.sample.auth.phone.ui.PhoneViewModel
 import work.sample.quizapp.di.qualifier.ViewModelKey
@@ -32,4 +34,14 @@ abstract class AppViewModelBuilder {
     @IntoMap
     @ViewModelKey(GroupDetailsViewModel::class)
     abstract fun groupDetailsViewModel(groupDetailsViewModel: GroupDetailsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TestDetailViewModel::class)
+    abstract fun testDetailsViewModel(testDetailViewModel: TestDetailViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TestHistoryViewModel::class)
+    abstract fun testHistoryViewModel(testHistoryViewModel: TestHistoryViewModel): ViewModel
 }

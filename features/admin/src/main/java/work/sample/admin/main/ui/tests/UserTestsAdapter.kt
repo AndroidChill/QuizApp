@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import work.sample.admin.databinding.ItemGroupBinding
 import work.sample.admin.databinding.ItemUserTestsBinding
 import work.sample.admin.main.ui.GroupHolder
+import work.sample.admin.main.ui.TestClick
 import work.sample.domain.models.GroupBody
 import work.sample.domain.models.info.TestPrivate
 import work.sample.domain.models.info.TestPublish
 
-class UserTestsAdapter : RecyclerView.Adapter<UserTestsViewHolder>() {
+class UserTestsAdapter (
+    var listener: TestClick
+        ): RecyclerView.Adapter<UserTestsViewHolder>() {
 
     private val publishTest = mutableListOf<TestPublish>()
     private val privateTest = mutableListOf<TestPrivate>()
@@ -37,6 +40,19 @@ class UserTestsAdapter : RecyclerView.Adapter<UserTestsViewHolder>() {
             holder.fillPrivate(privateTest[position - publishTest.size].title, privateTest[position - publishTest.size].groupTitle)
         } else {
             holder.fillPublish(publishTest[position].title)
+        }
+
+        holder.itemView.setOnClickListener {
+            var id: Int = 0
+            var title: String = ""
+            if (position >= publishTest.size) {
+                id = privateTest[position - publishTest.size].id
+                title = privateTest[position - publishTest.size].title
+            } else {
+                id = publishTest[position].id
+                title = publishTest[position].title
+            }
+            listener.onClick(id, title)
         }
     }
 

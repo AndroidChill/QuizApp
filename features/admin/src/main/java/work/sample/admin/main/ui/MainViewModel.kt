@@ -11,6 +11,8 @@ import work.sample.navigation.Router
 import work.sample.navigation.params.screens.admin.GroupCreateScreenParams
 import work.sample.navigation.params.screens.admin.GroupDetailScreenParams
 import work.sample.navigation.params.screens.admin.GroupRequestScreenParams
+import work.sample.navigation.params.screens.test.TestDetailScreenParams
+import work.sample.navigation.params.screens.test.TestHistoryScreenParams
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor() : BaseViewModel<MainState, MainAction, MainNews>() {
@@ -40,5 +42,13 @@ class MainViewModel @Inject constructor() : BaseViewModel<MainState, MainAction,
                 title = title
             )
         )
+    }
+
+    fun navigateToTestDetail(testId: Int, title: String) {
+        router.navigate(TestDetailScreenParams(testId, title))
+    }
+
+    fun navigateHistory(roleId: Int) {
+        router.navigate(TestHistoryScreenParams(roleId))
     }
 }
