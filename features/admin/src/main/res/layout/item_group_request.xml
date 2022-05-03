@@ -32,6 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_name">
 
         <TextView
+            android:id="@+id/btn_disable"
             style="@style/TextStyle.Normal.Blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,6 +41,7 @@
             android:text="Отклонить"/>
 
         <TextView
+            android:id="@+id/btn_enable"
             style="@style/TextStyle.Normal.Blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

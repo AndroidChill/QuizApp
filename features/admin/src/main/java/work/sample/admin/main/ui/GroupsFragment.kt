@@ -14,11 +14,13 @@ import work.sample.admin.main.ui.tests.UserTestsAdapter
 import work.sample.core.BaseFragment
 import work.sample.core.mvi.MviView
 import work.sample.navigation.Router
+import work.sample.navigation.params.screens.admin.GroupCreateCallback
 import work.sample.navigation.params.screens.admin.GroupCreateScreenParams
 import javax.inject.Inject
 import work.sample.admin.databinding.FragmentGroupsBinding as Binding
 
-class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, GroupClick, TestClick {
+class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, GroupClick, TestClick,
+    GroupCreateCallback {
 
     override val inflater: (LayoutInflater, ViewGroup?, Boolean) -> Binding =
         Binding::inflate
@@ -48,7 +50,7 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
 
         with(binding) {
             btnAddGroup.setOnClickListener {
-                viewModel.navigateToCreateGroup()
+                viewModel.navigateToCreateGroup(this@GroupsFragment)
             }
             btnGroupsRequest.setOnClickListener {
                 viewModel.navigateToRequestGroup()
@@ -85,8 +87,9 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
                     tvCompanyName.text = state.data.user.company.title
                     tvCompanyAddress.text = state.data.user.company.address
 
-                    if (state.data.user.roleId != 2) {
+                    if (state.data.user.roleId != 1) {
                         btnAddGroup.visibility = View.GONE
+                        btnAddTest.visibility = View.GONE
                     }
 
                     roleId = state.data.user.roleId
@@ -96,7 +99,10 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
                     adapterGroup.addData(it)
                 }
 
-                adapterTest.addPublishData(state.data.tests.publish)
+                adapterTest.addPublishData(state.data.tests.publish.filter {
+                    it.title != "бурильщик капитального ремонта скважин" &&
+                            it.title != "Another Test in project"
+                })
                 adapterTest.addPrivateData(state.data.tests.private)
             }
         }
@@ -112,5 +118,13 @@ class GroupsFragment : BaseFragment<Binding>(), MviView<MainState, MainNews>, Gr
 
     override fun onClick(id: Int, title: String) {
         viewModel.navigateToTestDetail(id, title)
+    }
+
+    override fun onCompleted() {
+        adapterGroup.clearData()
+        adapterTest.clearData()
+        lifecycleScope.launch {
+            viewModel.obtainAction(MainAction.InfoUser)
+        }
     }
 }

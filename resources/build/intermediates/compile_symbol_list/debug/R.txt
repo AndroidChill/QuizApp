@@ -36,6 +36,7 @@ int drawable cb_user_agreement_unselect 0x0
 int drawable ic_back 0x0
 int drawable ic_baseline_backspace_24 0x0
 int drawable ic_baseline_close_24 0x0
+int drawable ic_baseline_settings_24 0x0
 int drawable ic_cb_ok 0x0
 int drawable ic_checkbox_select 0x0
 int drawable ic_choose_role 0x0

@@ -37,6 +37,7 @@ drawable cb_user_agreement_unselect
 drawable ic_back
 drawable ic_baseline_backspace_24
 drawable ic_baseline_close_24
+drawable ic_baseline_settings_24
 drawable ic_cb_ok
 drawable ic_checkbox_select
 drawable ic_choose_role

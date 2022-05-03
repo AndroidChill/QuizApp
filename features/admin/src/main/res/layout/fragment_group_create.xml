@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_set_phone"
+        android:id="@+id/btn_add_group"
         style="@style/Button.Text.Normal.Accent"
         android:layout_width="match_parent"
         android:layout_height="46dp"
@@ -78,10 +78,10 @@
         android:visibility="gone"
         android:progressDrawable="@color/white"
         android:theme="@style/progressBarWhite"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_set_phone"
-        app:layout_constraintEnd_toEndOf="@+id/btn_set_phone"
-        app:layout_constraintStart_toStartOf="@+id/btn_set_phone"
-        app:layout_constraintTop_toTopOf="@+id/btn_set_phone" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_add_group"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_group"
+        app:layout_constraintStart_toStartOf="@+id/btn_add_group"
+        app:layout_constraintTop_toTopOf="@+id/btn_add_group" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

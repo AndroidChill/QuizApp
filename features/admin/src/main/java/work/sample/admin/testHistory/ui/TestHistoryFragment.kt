@@ -43,7 +43,7 @@ class TestHistoryFragment : BaseFragment<Binding>(), MviView<TestHistoryState, T
             bind(viewLifecycleOwner.lifecycleScope, this@TestHistoryFragment)
         }
         lifecycleScope.launch {
-            if (arguments?.getInt(ARGS_ROLE_ID) != 2) {
+            if (arguments?.getInt(ARGS_ROLE_ID) != 1) {
                 viewModel.obtainAction(TestHistoryAction.TestHistoryMy)
             } else {
                 viewModel.obtainAction(TestHistoryAction.TestHistoryAll)

@@ -19,6 +19,11 @@ class GroupAdapter(
         notifyItemRangeInserted(dataCount, dataCount + list.size)
     }
 
+    fun clearData() {
+        data.clear()
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupHolder {
         val binding = ItemGroupBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return GroupHolder(binding)

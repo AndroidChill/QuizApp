@@ -8,6 +8,7 @@ import work.sample.admin.main.MainState
 import work.sample.admin.main.MainStore
 import work.sample.core.mvi.BaseViewModel
 import work.sample.navigation.Router
+import work.sample.navigation.params.screens.admin.GroupCreateCallback
 import work.sample.navigation.params.screens.admin.GroupCreateScreenParams
 import work.sample.navigation.params.screens.admin.GroupDetailScreenParams
 import work.sample.navigation.params.screens.admin.GroupRequestScreenParams
@@ -27,8 +28,8 @@ class MainViewModel @Inject constructor() : BaseViewModel<MainState, MainAction,
     @Inject
     lateinit var router: Router
 
-    fun navigateToCreateGroup() {
-        router.navigate(GroupCreateScreenParams)
+    fun navigateToCreateGroup(callback: GroupCreateCallback) {
+        router.navigate(GroupCreateScreenParams(callback))
     }
 
     fun navigateToRequestGroup() {

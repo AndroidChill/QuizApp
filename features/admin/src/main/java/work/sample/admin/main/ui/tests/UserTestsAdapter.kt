@@ -30,6 +30,12 @@ class UserTestsAdapter (
         notifyItemRangeInserted(dataCount + publishTest.size, dataCount + publishTest.size + list.size)
     }
 
+    fun clearData() {
+        publishTest.clear()
+        privateTest.clear()
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserTestsViewHolder {
         val binding = ItemUserTestsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UserTestsViewHolder(binding)

@@ -46,17 +46,25 @@ class TestDetailFragment : BaseFragment<Binding>(), MviView<TestDetailState, Tes
 
     override fun initView() {
         binding.textView8.text = arguments?.getString(ARGS_TEST_TITLE) ?: ""
+
+//        binding.ivBack.setOnClickListener {
+//            onDestroy()
+//        }
     }
 
     private var test = mutableListOf<Question>()
     private var count = 0
+    private var resultTrue = 0
     private var percentTrue = 100
     private var percentCount = 0
 
     override fun renderState(state: TestDetailState) {
         when (state) {
             is TestDetailState.TestDetailSuccess -> {
-                test = state.test.questions.toMutableList()
+                test = state.test.questions.filter {
+                    true
+//                    it.title != "бурильщик капитального ремонта скважин"
+                }.toMutableList()
                 percentCount = 100 / test.size
                 changeFragment(false)
             }
@@ -76,6 +84,7 @@ class TestDetailFragment : BaseFragment<Binding>(), MviView<TestDetailState, Tes
 
         if (count != 0 && !result) {
             percentTrue -= percentCount
+            resultTrue++
         }
 
         if (count >= test.size) {
@@ -87,7 +96,7 @@ class TestDetailFragment : BaseFragment<Binding>(), MviView<TestDetailState, Tes
             }
             binding.frameContainer.visibility = View.GONE
             binding.tvResult.visibility = View.VISIBLE
-            binding.tvResult.text = "Поздравляю вы верно ответили на $percentTrue % вопросов"
+            binding.tvResult.text = "Поздравляю вы верно ответили на $resultTrue из $count вопросов"
         } else {
             binding.tvCount.text = "${count + 1}/${test.size}"
             parentFragmentManager.beginTransaction()

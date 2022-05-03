@@ -3,6 +3,7 @@ package work.sample.quizapp.di.module.navigation
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import work.sample.admin.GroupCreateBottomFragment
 import work.sample.admin.groupDetail.ui.GroupDetailFragment
 import work.sample.admin.testDetail.ui.TestDetailFragment
 import work.sample.admin.testHistory.ui.TestHistoryFragment
@@ -61,7 +62,7 @@ class NavigationScreenMapModule {
     @ScreenKey(GroupCreateScreenParams::class)
     fun groupListToGroupCreateBottom() : NavigationData = NavigationData(
         navId = work.sample.admin.R.id.action_fragment_groups_to_dialog_group_create,
-        bundleCreator = BundleCreator.empty()
+        bundleCreator = bundleCreateDelegate(GroupCreateBottomFragment::createBundleForCreateGroup)
     )
 
     @IntoMap

@@ -21,8 +21,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginStart="64dp"
-        android:text="История прохождения тестов"
+        android:text="История тестов"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_settings_24"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_back" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_history_all"

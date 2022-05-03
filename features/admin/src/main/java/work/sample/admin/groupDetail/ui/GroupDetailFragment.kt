@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.redmadrobot.inputmask.MaskedTextChangedListener
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import work.sample.admin.groupDetail.GroupDetailState
 import work.sample.admin.groupDetail.GroupDetailsAction
@@ -20,8 +21,12 @@ import work.sample.admin.main.MainNews
 import work.sample.admin.main.MainState
 import work.sample.admin.main.ui.MainViewModel
 import work.sample.core.BaseFragment
+import work.sample.core.DataState
 import work.sample.core.mvi.MviView
+import work.sample.domain.models.group.invite.GroupInviteRequest
+import work.sample.domain.usecase.GroupUseCase
 import work.sample.navigation.params.screens.admin.GroupDetailScreenParams
+import javax.inject.Inject
 import work.sample.admin.databinding.FragmentGroupDetailBinding as Binding
 
 class GroupDetailFragment : BaseFragment<Binding>(), MviView<GroupDetailState, GroupDetailsNews> {
@@ -34,6 +39,9 @@ class GroupDetailFragment : BaseFragment<Binding>(), MviView<GroupDetailState, G
     val viewModel by lazy {
         viewModelFactory.create(GroupDetailsViewModel::class.java)
     }
+
+    @Inject
+    lateinit var groupUseCase: GroupUseCase
 
     override fun initView() {
 
@@ -61,6 +69,33 @@ class GroupDetailFragment : BaseFragment<Binding>(), MviView<GroupDetailState, G
                     btnSetPhone.isEnabled = length == 18
                 }
             })
+
+            btnSetPhone.setOnClickListener {
+                val phone = etNumber.text.toString().filter {
+                    it.isDigit() || it == '+'
+                }
+                lifecycleScope.launch {
+                    groupUseCase.groupInvite(GroupInviteRequest(
+                        arguments?.getInt(ARGS_GROUP_ID) ?: 0,
+                        phone
+                    ))
+                        .catch {
+                            Toast.makeText(requireContext(), "Проверьте правильность номеера телефона", Toast.LENGTH_SHORT).show()
+                        }
+                        .collect {
+                        when(it) {
+                            is DataState.Success -> {
+                                if (it.data.result == "error") {
+                                    Toast.makeText(requireContext(), "Пользователь с таким номером телефоном уже связан с этой группой", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    Toast.makeText(requireContext(), "Приглашение в группу успешно отправлено", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
         }
     }
 
