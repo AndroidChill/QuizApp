@@ -12,3 +12,4 @@ data class TestHistoryAllResponse(
     @SerializedName("user_name")
     var userName: String
 )
+

@@ -10,12 +10,14 @@ import work.sample.domain.models.UserBody
 
 class GroupUserAdapter : RecyclerView.Adapter<GroupUserViewHolder>() {
 
-    private val data = mutableListOf<UserBody>()
+        private val data = mutableSetOf<UserBody>()
 
     fun addData(list: List<UserBody>) {
-        val dataCount = data.size
-        data.addAll(dataCount, list)
-        notifyItemRangeInserted(dataCount, dataCount + list.size)
+//        val dataCount = data.size
+        data.addAll(list)
+        notifyDataSetChanged()
+//        data.addAll(dataCount, list)
+//        notifyItemRangeInserted(dataCount, dataCount + list.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupUserViewHolder {
@@ -24,7 +26,14 @@ class GroupUserAdapter : RecyclerView.Adapter<GroupUserViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: GroupUserViewHolder, position: Int) {
-        holder.fill(data[position])
+        var index = 0
+        for (item in data) {
+            if (index == position) {
+                holder.fill(item)
+                break
+            }
+            index++
+        }
     }
 
     override fun getItemCount(): Int {

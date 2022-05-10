@@ -16,6 +16,7 @@ import work.sample.admin.testHistory.TestHistoryState
 import work.sample.admin.testHistory.ui.adapters.TestHistoryAllAdapter
 import work.sample.core.BaseFragment
 import work.sample.core.mvi.MviView
+import work.sample.domain.models.testHistory.toAllResponse
 import work.sample.navigation.params.screens.test.TestHistoryScreenParams
 import work.sample.admin.databinding.FragmentHistoryBinding as Binding
 
@@ -56,6 +57,10 @@ class TestHistoryFragment : BaseFragment<Binding>(), MviView<TestHistoryState, T
         when (state) {
             is TestHistoryState.TestHistoryAllSuccess -> {
                 adapterAll.addData(state.data)
+            }
+
+            is TestHistoryState.TestHistoryMySuccess -> {
+                adapterAll.addData(state.data.toAllResponse())
             }
         }
     }

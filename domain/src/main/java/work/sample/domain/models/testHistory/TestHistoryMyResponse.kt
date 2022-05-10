@@ -8,3 +8,15 @@ data class TestHistoryMyResponse(
     var percentRight: Int,
     var datetime: String
 )
+
+fun List<TestHistoryMyResponse>.toAllResponse() : List<TestHistoryAllResponse> {
+    return this.map {
+        TestHistoryAllResponse(
+            title = it.title,
+            percentRight = it.percentRight,
+            datetime = it.datetime,
+            userPhone = "",
+            userName = ""
+        )
+    }
+}
