@@ -43,6 +43,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
         <entry key="features/admin/src/main/res/layout/fragment_groups.xml" value="0.1" />
         <entry key="features/admin/src/main/res/layout/fragment_test_detail.xml" value="0.1" />
+        <entry key="features/admin/src/main/res/layout/item_user_tests.xml" value="0.1" />
         <entry key="features/auth/src/main/res/layout/activity_auth.xml" value="0.19610507246376813" />
         <entry key="features/auth/src/main/res/layout/fragment_choose_role.xml" value="0.19610507246376813" />
         <entry key="features/auth/src/main/res/layout/fragment_company_name.xml" value="0.19610507246376813" />

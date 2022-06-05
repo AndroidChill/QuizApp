@@ -97,7 +97,7 @@ class TestDetailFragment : BaseFragment<Binding>(), MviView<TestDetailState, Tes
             binding.frameContainer.visibility = View.GONE
             binding.ivCubok.visibility = View.VISIBLE
             binding.tvResult.visibility = View.VISIBLE
-            binding.tvResult.text = "Поздравляю вы верно ответили на $resultTrue из $count вопросов"
+            binding.tvResult.text = "Поздравляю вы верно ответили на ${resultTrue + 1} из $count вопросов"
         } else {
             binding.tvCount.text = "${count + 1}/${test.size}"
             parentFragmentManager.beginTransaction()
