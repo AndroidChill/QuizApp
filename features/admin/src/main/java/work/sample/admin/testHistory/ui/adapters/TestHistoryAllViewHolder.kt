@@ -12,7 +12,7 @@ class TestHistoryAllViewHolder(val binding: ItemHistoryAllBinding)
             with(binding) {
                 tvTitle.text = data.title
                 tvTime.text = data.datetime
-                tvPercent.text = "${data.percentRight} %"
+                tvPercent.text = "${data.percentRight / 10} / 10"
                 if (data.userPhone.isEmpty()) {
                     tvUser.visibility = View.GONE
                 } else {

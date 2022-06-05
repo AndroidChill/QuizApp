@@ -40,6 +40,16 @@
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/bt_et_accent.xml" value="0.1605" />
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/cb_user_agreement.xml" value="0.1505" />
         <entry key="..\:/work/QuizApp/resources/src/main/res/drawable/ic_back.xml" value="0.1495" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
+        <entry key="features/admin/src/main/res/layout/fragment_groups.xml" value="0.1" />
+        <entry key="features/admin/src/main/res/layout/fragment_test_detail.xml" value="0.1" />
+        <entry key="features/auth/src/main/res/layout/activity_auth.xml" value="0.19610507246376813" />
+        <entry key="features/auth/src/main/res/layout/fragment_choose_role.xml" value="0.19610507246376813" />
+        <entry key="features/auth/src/main/res/layout/fragment_company_name.xml" value="0.19610507246376813" />
+        <entry key="features/auth/src/main/res/layout/fragment_intro.xml" value="0.19610507246376813" />
+        <entry key="features/auth/src/main/res/layout/fragment_name.xml" value="0.19610507246376813" />
+        <entry key="features/auth/src/main/res/layout/fragment_phone.xml" value="0.19610507246376813" />
+        <entry key="features/auth/src/main/res/layout/fragment_sms.xml" value="0.1" />
       </map>
     </option>
   </component>

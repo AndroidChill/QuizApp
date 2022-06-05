@@ -1,2 +1,0 @@
-work.sample.core.R
-work.sample.core.R: R()

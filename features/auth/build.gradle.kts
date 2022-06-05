@@ -43,6 +43,8 @@ dependencies {
     api(project(":domain"))
 
     implementation("com.github.RedMadRobot:input-mask-android:6.1.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
 
     kapt(Dependencies.Kapt.daggerCompiler)
     annotationProcessor(Dependencies.Kapt.daggerAndroidProcessor)

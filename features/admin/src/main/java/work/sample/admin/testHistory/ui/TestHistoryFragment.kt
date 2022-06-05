@@ -33,6 +33,9 @@ class TestHistoryFragment : BaseFragment<Binding>(), MviView<TestHistoryState, T
 
     override fun initView() {
         with(binding) {
+            ivBack.setOnClickListener {
+                viewModel.router.back()
+            }
             adapterAll = TestHistoryAllAdapter()
             rvHistoryAll.layoutManager = LinearLayoutManager(context)
             rvHistoryAll.adapter = adapterAll
@@ -56,11 +59,15 @@ class TestHistoryFragment : BaseFragment<Binding>(), MviView<TestHistoryState, T
     override fun renderState(state: TestHistoryState) {
         when (state) {
             is TestHistoryState.TestHistoryAllSuccess -> {
-                adapterAll.addData(state.data)
+                adapterAll.addData(state.data.sortedBy {
+                    it.datetime
+                }.reversed())
             }
 
             is TestHistoryState.TestHistoryMySuccess -> {
-                adapterAll.addData(state.data.toAllResponse())
+                adapterAll.addData(state.data.toAllResponse().sortedBy {
+                    it.datetime
+                }.reversed())
             }
         }
     }

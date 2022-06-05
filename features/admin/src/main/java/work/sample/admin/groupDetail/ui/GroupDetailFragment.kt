@@ -80,7 +80,7 @@ class GroupDetailFragment : BaseFragment<Binding>(), MviView<GroupDetailState, G
                         phone
                     ))
                         .catch {
-                            Toast.makeText(requireContext(), "Проверьте правильность номеера телефона", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "Пользователь с таким номером телефона отсутствует в системе", Toast.LENGTH_SHORT).show()
                         }
                         .collect {
                         when(it) {

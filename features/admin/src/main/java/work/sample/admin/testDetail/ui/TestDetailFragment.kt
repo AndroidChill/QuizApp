@@ -91,10 +91,11 @@ class TestDetailFragment : BaseFragment<Binding>(), MviView<TestDetailState, Tes
             lifecycleScope.launch {
                 viewModel.obtainAction(TestDetailAction.TestSave(SaveTestRequest(
                     testId = arguments?.getInt(ARGS_TEST_ID) ?: 0,
-                    percentRight = percentTrue
+                    percentRight = 100 - percentTrue
                 )))
             }
             binding.frameContainer.visibility = View.GONE
+            binding.ivCubok.visibility = View.VISIBLE
             binding.tvResult.visibility = View.VISIBLE
             binding.tvResult.text = "Поздравляю вы верно ответили на $resultTrue из $count вопросов"
         } else {
