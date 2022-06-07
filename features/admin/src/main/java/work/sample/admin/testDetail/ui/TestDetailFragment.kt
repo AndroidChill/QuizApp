@@ -78,26 +78,32 @@ class TestDetailFragment : BaseFragment<Binding>(), MviView<TestDetailState, Tes
         TODO("Not yet implemented")
     }
 
+    // она вызывается когда юзер отвечает на вопрос, то есть у нас обновляются данные по
+    // правильности в процентах
     fun changeFragment(result: Boolean) {
+
 
         binding.pBar.progress = (((count + 1).toFloat() / (test.size).toFloat()) * 100).toInt()
 
-        if (count != 0 && !result) {
-            percentTrue -= percentCount
-            resultTrue++
+        if (count != 0 ) {
+            if (!result) {
+                percentTrue -= percentCount
+            } else {
+                resultTrue++
+            }
         }
 
         if (count >= test.size) {
             lifecycleScope.launch {
                 viewModel.obtainAction(TestDetailAction.TestSave(SaveTestRequest(
                     testId = arguments?.getInt(ARGS_TEST_ID) ?: 0,
-                    percentRight = 100 - percentTrue
+                    percentRight = percentTrue
                 )))
             }
             binding.frameContainer.visibility = View.GONE
             binding.ivCubok.visibility = View.VISIBLE
             binding.tvResult.visibility = View.VISIBLE
-            binding.tvResult.text = "Поздравляю вы верно ответили на ${resultTrue + 1} из $count вопросов"
+            binding.tvResult.text = "Поздравляю вы верно ответили на ${resultTrue} из $count вопросов"
         } else {
             binding.tvCount.text = "${count + 1}/${test.size}"
             parentFragmentManager.beginTransaction()
